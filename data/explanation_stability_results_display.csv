@@ -1,0 +1,46 @@
+Model,Condition,Spearman Correlation
+Linear Regression,M10,1.0
+Linear Regression,M20,1.0
+Linear Regression,M30,1.0
+Linear Regression,N1,1.0
+Linear Regression,N2,0.9945
+Linear Regression,N3,0.9945
+Linear Regression,M10+N1,1.0
+Linear Regression,M10+N2,0.9945
+Linear Regression,M10+N3,0.9945
+Linear Regression,M20+N1,1.0
+Linear Regression,M20+N2,0.9945
+Linear Regression,M20+N3,0.9945
+Linear Regression,M30+N1,1.0
+Linear Regression,M30+N2,1.0
+Linear Regression,M30+N3,0.9945
+Random Forest,M10,0.9945
+Random Forest,M20,0.9835
+Random Forest,M30,0.9835
+Random Forest,N1,0.9945
+Random Forest,N2,0.9945
+Random Forest,N3,0.9945
+Random Forest,M10+N1,0.9945
+Random Forest,M10+N2,0.9835
+Random Forest,M10+N3,0.9945
+Random Forest,M20+N1,0.9835
+Random Forest,M20+N2,0.9835
+Random Forest,M20+N3,0.9835
+Random Forest,M30+N1,0.9835
+Random Forest,M30+N2,0.967
+Random Forest,M30+N3,0.9835
+XGBoost,M10,1.0
+XGBoost,M20,1.0
+XGBoost,M30,0.9945
+XGBoost,N1,1.0
+XGBoost,N2,1.0
+XGBoost,N3,1.0
+XGBoost,M10+N1,1.0
+XGBoost,M10+N2,1.0
+XGBoost,M10+N3,1.0
+XGBoost,M20+N1,0.9945
+XGBoost,M20+N2,1.0
+XGBoost,M20+N3,1.0
+XGBoost,M30+N1,0.9945
+XGBoost,M30+N2,0.9945
+XGBoost,M30+N3,1.0

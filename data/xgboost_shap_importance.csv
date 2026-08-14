@@ -1,0 +1,14 @@
+Rank,Feature,Mean Absolute SHAP Value
+1,meter,525.8696
+2,square_feet,274.03287
+3,month,154.314
+4,hour,87.74106
+5,year_built,81.25077
+6,dew_temperature,67.92903
+7,primary_use,43.271378
+8,air_temperature,31.973574
+9,dayofweek,14.6212015
+10,sea_level_pressure,9.624885
+11,wind_direction,8.20035
+12,wind_speed,5.991526
+13,precip_depth_1_hr,1.0849686
