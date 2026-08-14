@@ -11,19 +11,26 @@
 [![XGBoost](https://img.shields.io/badge/XGBoost-3.3.0-green)](#)
 [![Deployment](https://img.shields.io/badge/Deployment-Render-purple)](#)
 
-### 🚀 [Launch Live Demo / 在线体验](YOUR_RENDER_URL)
+## 🌐 Live Demo / 在线 Demo
+
+👉 **[Click here to try the Smart Building Energy Prediction Lab](https://smart-building-energy-prediction.onrender.com)**
+
+👉 **[点击这里进入智能建筑能源预测在线 Demo](https://smart-building-energy-prediction.onrender.com)**
+
+> If the Render free instance has been inactive for a while, the first load may take a short time while the service wakes up.
+> 如果 Render 免费实例长时间无人访问，第一次打开时可能需要稍等片刻等待服务启动。
 
 ---
 
-## ✨ What is this project? / 这个项目是做什么的？
+# ✨ What is this project? / 这个项目是做什么的？
 
 This project investigates **energy consumption prediction in smart buildings under imperfect sensor data**.
 
-Instead of evaluating machine learning models only on clean data, this study introduces controlled **missing values and Gaussian noise** into the test data and examines not only prediction performance, but also **robustness, explainability, and explanation stability**.
+Instead of evaluating machine learning models only on clean data, this study introduces controlled **missing values and Gaussian noise** into the test data and evaluates not only prediction performance, but also **robustness, explainability, and explanation stability**.
 
 本项目研究的是 **不完美传感器数据条件下的智能建筑能源消耗预测**。
 
-与只在干净数据上比较模型准确性的传统做法不同，本研究在测试数据中人为加入不同程度的 **缺失值和高斯噪声**，进一步分析模型的：
+与只在干净数据上比较模型预测效果的传统做法不同，本研究在测试数据中加入不同程度的 **缺失值和高斯噪声**，进一步分析模型的：
 
 * 预测性能
 * 鲁棒性
@@ -32,23 +39,25 @@ Instead of evaluating machine learning models only on clean data, this study int
 
 ---
 
-## 🎯 Research Question / 核心问题
+# 🎯 Core Research Question / 核心研究问题
 
 > **A model may perform well when the data is clean — but what happens when the sensors are not?**
 
-模型在干净数据上表现很好，并不代表部署以后面对缺失、噪声或测量扰动时仍然可靠。
+模型在干净数据上表现良好，并不代表部署后面对缺失、噪声或测量扰动时仍然可靠。
+
+This project therefore asks:
+
+> **Which machine learning model provides the best balance between predictive performance, robustness, and explainability under imperfect sensor data?**
 
 因此，本项目重点回答：
 
-**Which machine learning model provides the best balance between predictive performance, robustness and explainability under imperfect sensor data?**
-
-**在不完美传感器数据条件下，哪一种机器学习模型能够在预测性能、鲁棒性和可解释性之间取得更好的平衡？**
+> **在不完美传感器数据条件下，哪一种机器学习模型能够在预测性能、鲁棒性和可解释性之间取得更好的平衡？**
 
 ---
 
 # 🔬 Experimental Design / 实验设计
 
-The project compares three machine learning models with different levels of complexity:
+The project compares three machine learning models with different levels of model complexity:
 
 本研究选择了三个不同复杂度的机器学习模型：
 
@@ -105,17 +114,17 @@ The model uses **13 input features** from four groups:
 
 模型使用 **13 个输入特征**，分为四类：
 
-### 🏢 Building Features
+### 🏢 Building Features / 建筑特征
 
 * `primary_use`
 * `square_feet`
 * `year_built`
 
-### ⚡ Meter Feature
+### ⚡ Meter Feature / 能源表类型
 
 * `meter`
 
-### 🌤 Weather Features
+### 🌤 Weather Features / 天气特征
 
 * `air_temperature`
 * `dew_temperature`
@@ -124,7 +133,7 @@ The model uses **13 input features** from four groups:
 * `wind_direction`
 * `wind_speed`
 
-### 🕒 Time Features
+### 🕒 Time Features / 时间特征
 
 * `hour`
 * `dayofweek`
@@ -133,6 +142,10 @@ The model uses **13 input features** from four groups:
 The final clean test set contains:
 
 **5,093 observations**
+
+最终干净测试集包含：
+
+**5,093 条测试样本**
 
 ---
 
@@ -144,7 +157,7 @@ The final clean test set contains:
 | Random Forest     |     316.023 | **105.833** |     0.9407 |
 | **XGBoost**       | **299.166** |     109.316 | **0.9469** |
 
-### Key Findings / 主要发现
+## Key Findings / 主要发现
 
 * 🥇 **XGBoost achieved the lowest RMSE**
 * 🥇 **XGBoost achieved the highest R²**
@@ -158,7 +171,7 @@ The final clean test set contains:
 * 🥇 **Random Forest 的 MAE 最低**
 * Linear Regression 的整体预测性能明显弱于两个非线性模型
 
-> **Important:** Model complexity does not guarantee superiority across every evaluation metric.
+> **Important: Model complexity does not guarantee superiority across every evaluation metric.**
 > **重要：模型越复杂，并不意味着在所有评价指标上都一定更好。**
 
 <p align="center">
@@ -171,7 +184,7 @@ The final clean test set contains:
 
 Robustness is evaluated by measuring how much RMSE increases when sensor data quality decreases.
 
-鲁棒性通过观察数据质量下降后 **RMSE 增加多少** 来衡量。
+鲁棒性通过观察传感器数据质量下降后 **RMSE 增加多少** 来衡量。
 
 ### Metrics / 指标
 
@@ -190,17 +203,27 @@ The experiments include:
 * Gaussian noise
 * Combined missing values + Gaussian noise
 
+实验包括：
+
+* 缺失值
+* 高斯噪声
+* 缺失值 + 高斯噪声组合条件
+
 <p align="center">
   <img src="assets/model_performance_and_robustness_comparison.png" width="900">
 </p>
 
-### One interesting observation / 一个有趣的结果
+## One Interesting Observation / 一个值得注意的结果
 
 Linear Regression shows relatively small percentage degradation under imperfect data, but its **absolute prediction error is already much higher**.
 
-因此：
+Linear Regression 在不完美数据条件下的相对退化比例较小，但它本身的 **绝对预测误差明显更高**。
+
+Therefore:
 
 > **Low relative degradation does not automatically mean good overall prediction performance.**
+
+因此：
 
 > **相对退化幅度小，并不等于模型整体预测效果最好。**
 
@@ -210,13 +233,15 @@ Linear Regression shows relatively small percentage degradation under imperfect 
 
 Explainability is evaluated at **two levels**.
 
-本研究从 **两个层面** 研究模型可解释性。
+本研究从 **两个层面** 对模型可解释性进行分析。
 
 ---
 
 ## 1️⃣ Baseline Explainability / 基线可解释性
 
 Different model-specific explanation methods are used:
+
+不同模型采用与其结构相适应的解释方法：
 
 | Model             | Explainability Method |
 | ----------------- | --------------------- |
@@ -274,13 +299,27 @@ More similar feature ranking
 Higher explanation stability
 ```
 
+即：
+
+```text
+ρ 越接近 1
+      ↓
+特征排序越接近基线
+      ↓
+解释稳定性越高
+```
+
 ---
 
-## 📌 SHAP Sample Stability Check
+# 📌 SHAP Sample Stability Check / SHAP 样本稳定性检查
 
-To balance explanation stability and computational cost, the final analysis uses a fixed sample of:
+To balance explanation stability and computational cost, the final explanation stability analysis uses a fixed sample of:
 
 **300 test observations**
+
+为了在解释稳定性和计算成本之间取得平衡，最终解释稳定性分析使用固定的：
+
+**300 条测试样本**
 
 The sample size was checked using:
 
@@ -291,6 +330,8 @@ The sample size was checked using:
 ```
 
 The 300-sample ranking was highly consistent with the 500-sample reference.
+
+300 条样本得到的特征排序与 500 条样本参考结果保持高度一致。
 
 | Model             | 300 vs 500 Spearman |
 | ----------------- | ------------------: |
@@ -308,11 +349,11 @@ The 300-sample ranking was highly consistent with the 500-sample reference.
 | Random Forest     |           0.9868 |              0.9670 |
 | **XGBoost**       |       **0.9985** |          **0.9945** |
 
-### Interpretation / 结果解释
+## Interpretation / 结果解释
 
 All three models maintained high feature-ranking stability.
 
-三个模型在实验条件下均保持了较高的解释排名稳定性。
+三个模型在实验条件下均保持了较高的特征排序稳定性。
 
 However:
 
@@ -320,11 +361,15 @@ However:
 * Linear Regression was also highly stable
 * Random Forest showed greater variation under several imperfect conditions
 
-但需要注意：
+但是：
+
+* **XGBoost 的平均解释稳定性最高**
+* Linear Regression 同样保持了很高的稳定性
+* Random Forest 在部分不完美数据条件下表现出更明显的排名变化
 
 > Explanation stability measures **consistency**, not causal correctness.
 
-> 解释稳定性衡量的是 **解释结果是否一致**，并不代表模型解释具有因果意义。
+> 解释稳定性衡量的是 **解释结果是否一致**，并不意味着这些解释具有因果意义。
 
 <p align="center">
   <img src="assets/explanation_stability_heatmap.png" width="900">
@@ -342,7 +387,11 @@ The project includes a complete Streamlit web application.
 
 本项目提供一个完整的 Streamlit 在线交互系统。
 
-### 🚀 [Open Live Demo / 打开在线 Demo](YOUR_RENDER_URL)
+## 🚀 Try the Demo / 立即体验 Demo
+
+👉 **[Open the Live Demo](https://smart-building-energy-prediction.onrender.com)**
+
+👉 **[点击这里打开在线 Demo](https://smart-building-energy-prediction.onrender.com)**
 
 The demo contains five modules:
 
@@ -366,11 +415,11 @@ Two modes are available:
 提供两种预测方式：
 
 * **Test Sample**：选择真实测试样本，比较真实值与三个模型预测值
-* **Manual Input**：手动输入13个特征，让模型现场预测
+* **Manual Input**：手动输入 13 个特征，让三个模型现场预测
 
 ### 📊 Model Performance
 
-Compare RMSE, MAE and R²
+Compare RMSE, MAE, and R²
 比较三个模型的 RMSE、MAE 和 R²
 
 ### 🛡 Robustness Analysis
@@ -380,8 +429,8 @@ Explore model degradation under imperfect sensor conditions
 
 ### 🧠 Explainability
 
-Explore coefficients, feature importance, SHAP and explanation stability
-查看系数、特征重要性、SHAP以及解释稳定性
+Explore coefficients, feature importance, SHAP, and explanation stability
+查看系数、特征重要性、SHAP 以及解释稳定性
 
 ---
 
@@ -444,7 +493,7 @@ smart-building-energy-prediction/
 Clone the repository:
 
 ```bash
-git clone YOUR_REPOSITORY_URL
+git clone https://github.com/hee289427-wq/smart-building-energy-prediction.git
 cd smart-building-energy-prediction
 ```
 
@@ -468,9 +517,9 @@ http://localhost:8501
 
 ---
 
-# 💡 Why this project matters / 项目价值
+# 💡 Why This Project Matters / 项目价值
 
-Most machine learning studies focus on:
+Most machine learning studies focus mainly on:
 
 > **“How accurate is the model?”**
 
@@ -482,7 +531,7 @@ and:
 
 > **“Does the model continue relying on similar information when data quality decreases?”**
 
-很多机器学习项目只回答：
+很多机器学习项目主要回答：
 
 > **“这个模型准不准？”**
 
@@ -494,7 +543,9 @@ and:
 
 > **“当数据质量下降以后，模型的解释是否仍然稳定？”**
 
-This allows predictive performance, robustness and explainability to be evaluated within one experimental framework.
+This allows predictive performance, robustness, and explainability to be evaluated within one experimental framework.
+
+这使得预测性能、鲁棒性和可解释性能够在同一个实验框架下被统一评估。
 
 ---
 
@@ -514,7 +565,7 @@ Research topic:
 
 ---
 
-# 👤 Author
+# 👤 Author / 作者
 
 **HE CHENZHEN (Eric)**
 Master of Artificial Intelligence
@@ -522,7 +573,7 @@ Universiti Malaya
 
 ---
 
-## ⭐ If you find this project interesting
+# ⭐ If You Find This Project Interesting / 如果你觉得这个项目有意思
 
 Feel free to:
 
@@ -532,7 +583,7 @@ Feel free to:
 * 🌐 Try the live demo
 * 💬 Share suggestions or research ideas
 
-如果你觉得这个项目有意思，欢迎：
+欢迎：
 
 * ⭐ Star 项目
 * 🍴 Fork 仓库
@@ -542,7 +593,11 @@ Feel free to:
 
 ---
 
-### 🚀 [Try the Live Demo / 立即体验在线 Demo](YOUR_RENDER_URL)
+## 🚀 Live Demo / 在线体验
+
+👉 **[Try the Smart Building Energy Prediction Lab](https://smart-building-energy-prediction.onrender.com)**
+
+👉 **[立即体验智能建筑能源预测 Demo](https://smart-building-energy-prediction.onrender.com)**
 
 > **Clean data tells us how accurate a model can be.
 > Imperfect data tells us how reliable it really is.**
