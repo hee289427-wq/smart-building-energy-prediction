@@ -28,8 +28,6 @@ An interactive machine-learning laboratory for predicting building energy consum
 
 ## 🌐 Live Demo / 在线 Demo
 
-## 🌐 Live Demo / 在线 Demo
-
 👉 **[Click here to try the Smart Building Energy Prediction Lab](https://smart-building-energy-prediction.onrender.com)**
 
 👉 **[点击这里进入智能建筑能源预测在线 Demo](https://smart-building-energy-prediction.onrender.com)**
