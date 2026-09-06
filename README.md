@@ -1,15 +1,32 @@
 # 🏢 Smart Building Energy Prediction Lab
 
-## Robust & Explainable Machine Learning under Imperfect Sensor Data
-
-> **Can a machine learning model still make reliable and explainable energy predictions when sensor data becomes incomplete or noisy?**
-> **当建筑传感器数据出现缺失和噪声时，机器学习模型还能保持可靠、稳定并且可解释吗？**
-
 [![Python](https://img.shields.io/badge/Python-3.12-blue)](#)
 [![Streamlit](https://img.shields.io/badge/Streamlit-Web%20Demo-red)](#)
-[![scikit-learn](https://img.shields.io/badge/scikit--learn-1.6.1-orange)](#)
-[![XGBoost](https://img.shields.io/badge/XGBoost-3.3.0-green)](#)
+[![XGBoost](https://img.shields.io/badge/XGBoost-Model-green)](#)
+[![SHAP](https://img.shields.io/badge/Explainability-SHAP-purple)](#)
 [![Deployment](https://img.shields.io/badge/Deployment-Render-purple)](#)
+
+An interactive machine-learning laboratory for predicting building energy consumption under missing and noisy sensor data, with robustness testing and SHAP-based explainability analysis.
+
+> **Clean data tells us how accurate a model can be. Imperfect data tells us how reliable it really is.**
+
+🌐 **[Try the live demo](https://smart-building-energy-prediction.onrender.com)** · 📊 **[View the repository](https://github.com/hee289427-wq/smart-building-energy-prediction)**
+
+## Why this project is worth exploring
+
+- Tests model performance under **16 clean and imperfect sensor conditions**
+- Compares **Linear Regression, Random Forest, and XGBoost**
+- Evaluates prediction accuracy, robustness, and explanation stability together
+- Includes an interactive **Streamlit** application with prediction, robustness, and SHAP analysis
+- Uses the **ASHRAE Great Energy Predictor III** dataset
+
+| Model | RMSE ↓ | MAE ↓ | R² ↑ |
+| --- | ---: | ---: | ---: |
+| Linear Regression | 929.179 | 480.975 | 0.4877 |
+| Random Forest | 316.023 | **105.833** | 0.9407 |
+| **XGBoost** | **299.166** | 109.316 | **0.9469** |
+
+## 🌐 Live Demo / 在线 Demo
 
 ## 🌐 Live Demo / 在线 Demo
 
